@@ -20,7 +20,7 @@ int BindCreatedSocket(int hSocket) {
     remote.sin_addr.s_addr = htons(ClientPort); /* Local port */
     iRetval = bind(hSocket,(struct sockaddr *)&remote, sizeof(remote));
         return iRetval;
-    }
+}
 
 int main(int argc , char *argv[])
 {
