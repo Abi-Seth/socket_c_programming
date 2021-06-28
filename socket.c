@@ -19,7 +19,8 @@ int BindCreatedSocket(int hSocket) {
     remote.sin_family = AF_INET; /*Internet address family*/
     remote.sin_addr.s_addr = htons(ClientPort); /* Local port */
     iRetval = bind(hSocket,(struct sockaddr *)&remote, sizeof(remote));
-        return iRetval;
+        
+    return iRetval;
 }
 
 int main(int argc , char *argv[])
@@ -68,6 +69,7 @@ int main(int argc , char *argv[])
                 printf("recv failed");
                 break;
             }
+
             printf("Client reply : %s\n",client_message);
             if(strcmp(pMessage,client_message)==0)
             {
@@ -77,12 +79,14 @@ int main(int argc , char *argv[])
             {
                 strcpy(message,"Invalid Message !");
             }
+
             // Send some data
             if( send(sock , message , strlen(message) , 0) < 0)
             {
                 printf("Send failed");
                 return 1;
             }
+            
             close(sock);
             sleep(1);
         }
