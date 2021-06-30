@@ -8,6 +8,7 @@ int SocketCreate(void) {
     int hSocket;
     printf("Create the socket'n");
     hSocket = socket(AF_INET, SOCK_STREAM, 0);
+
     return hSocket;
 }
 
@@ -32,6 +33,7 @@ int main(int argc , char *argv[])
     const char *pMessage = "hello
     aticleworld.com"; //Create socket
     socket_desc = SocketCreate();
+
     if (socket_desc == -1)
     {
         printf("Could not create socket");
@@ -74,9 +76,7 @@ int main(int argc , char *argv[])
         if(strcmp(pMessage,client_message)==0)
         {
             strcpy(message,"Hi there !");
-        }
-        else
-        {
+        } else {
             strcpy(message,"Invalid Message !");
         }
 
@@ -90,6 +90,6 @@ int main(int argc , char *argv[])
         close(sock);
         sleep(1);
     }
-    
+
     return 0;
 }
